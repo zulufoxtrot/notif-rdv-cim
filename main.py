@@ -1,7 +1,7 @@
 import os
 import requests
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 
 # Configure logging
@@ -16,7 +16,7 @@ API_URL = "https://imageriegap.mon-portail-patient.net/api/pp/availabilities/loc
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "8556080794")
 CHECK_INTERVAL = 15 * 60  # 15 minutes in seconds
-LIMIT_DATE = datetime(2026, 2, 4)
+LIMIT_DATE = datetime(2026, 2, 4, tzinfo=timezone.utc)
 
 
 def send_telegram_message(message):
