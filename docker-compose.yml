@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  rdv-monitor:
+    build: .
+    container_name: rdv-cim-monitor
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=8556080794
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
